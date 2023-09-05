@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body >
+
+<div style = 'background-color: blueviolet; position: absolute; height: 300px; width:300px; text-align: center; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: 30px; '>
+    <span style = "line-height: 300px;" class = "secret">
+        enter the secret code!!!
+    </span>
+</div>
+<script>
+    const content = document.querySelector('.secret');
+    const pressed = [];
+    const secretCode = 'kanae';
+    window.addEventListener('keydown',(e) =>{
+        
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length-1,pressed.length - secretCode.length);
+
+        if(pressed.join('').includes(secretCode)){
+            content.textContent = ' かなえ大好き';
+            document.body.style.backgroundColor = "yellow";
+            
+        }
+    })
+</script>
+</body>
+</html>
